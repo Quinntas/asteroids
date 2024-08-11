@@ -11,7 +11,7 @@ const Vector2 screenCenter = {screenWidth/2, screenHeight/2};
 #define NEARBLACK CLITERAL(Color){15, 15,15,255}
 
 #define MAX_ASTEROIDS 64
-#define ASTEROID_DELAY 0.90f
+#define ASTEROID_DELAY 1.5f
 #define ASTEROID_RANDOM_ANGLE 20 * DEG2RAD
 static Asteroid _asteroids[MAX_ASTEROIDS] = {0};
 static float _lastAsteroidCreationTime = -1.0f;
@@ -19,7 +19,7 @@ static float _lastAsteroidCreationTime = -1.0f;
 Vector2 GetNextAsteroidPosition(void)
 {
     int padding = 128;
-    Vector2 result = {padding, padding};
+    Vector2 result = {-padding, -padding};
 
     if (GetRandomValue(0, 1))
     {
