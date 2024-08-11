@@ -27,7 +27,9 @@ endif()
 
 add_executable(${PROJECT_NAME} src/main.c
         src/asteroid.c
-        src/asteroid.h)
+        src/asteroid.h
+        src/raygui.c
+        src/raygui.h)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
 

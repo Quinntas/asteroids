@@ -14,15 +14,22 @@ Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size)
         .position = position,
         .velocity = velocity,
         .size = size,
+        .creationTime = GetTime(),
         .rotation = GetRandomValue(0, 360),
         .rotationSpeed = GetRandomValue(ASTEROID_ROTATION_MIN_SPEED, ASTEROID_ROTATION_MAX_SPEED)
     };
 }
 
-void AsteroidUpdate(Asteroid *asteroid, float frameTime)
+void AsteroidUpdate(Asteroid *asteroid, float frameTime, float time)
 {
     if(!asteroid->active)
     {
+        return;
+    }
+
+    if (time > asteroid->creationTime + ASTEROID_LIFE)
+    {
+        asteroid->active = false;
         return;
     }
 
@@ -32,5 +39,10 @@ void AsteroidUpdate(Asteroid *asteroid, float frameTime)
 
 void AsteroidDraw(Asteroid asteroid)
 {
-    DrawPolyLines(asteroid.position, 3,64, asteroid.rotation, WHITE);
+    if(!asteroid.active)
+    {
+        return;
+    }
+
+    DrawPolyLines(asteroid.position, 3,16*(int)(asteroid.size), asteroid.rotation, WHITE);
 }

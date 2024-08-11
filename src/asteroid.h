@@ -10,6 +10,11 @@
 #define ASTEROID_ROTATION_MIN_SPEED 5
 #define ASTEROID_ROTATION_MAX_SPEED 240
 
+#define ASTEROID_MIN_SPEED 100
+#define ASTEROID_MAX_SPEED 300
+
+#define ASTEROID_LIFE 7.5f
+
 typedef enum AsteroidSize
 {
     ASTEROID_SMALL = 1,
@@ -25,10 +30,11 @@ typedef struct Asteroid
     float rotation;
     float rotationSpeed;
     Vector2 velocity;
+    float creationTime;
 } Asteroid;
 
 Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size);
-void AsteroidUpdate(Asteroid *asteroid, float frameTime);
+void AsteroidUpdate(Asteroid *asteroid, float frameTime, float time);
 void AsteroidDraw(Asteroid asteroid);
 
 #endif //ASTEROID_H
