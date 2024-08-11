@@ -7,6 +7,7 @@
 #include "player.h"
 
 static Player _player = {0};
+static Texture2D _playerTexture;
 
 void UpdateDrawFrame(void)
 {
@@ -22,7 +23,7 @@ void UpdateDrawFrame(void)
     ClearBackground(NEARBLACK);
 
     DrawAsteroids();
-    DrawPlayer(_player);
+    DrawPlayer(_player,_playerTexture);
 
     EndDrawing();
 }
@@ -34,6 +35,7 @@ int main(void)
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Asteroids");
 
     _player = SpawnPlayer();
+    _playerTexture = LoadTexture("../resources/ship.png");
 
     while(!WindowShouldClose())
     {

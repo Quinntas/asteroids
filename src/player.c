@@ -115,7 +115,10 @@ void UpdatePlayer(Player *player, float frameTime)
     UpdateWrap(player);
 }
 
-void DrawPlayer(Player player)
+void DrawPlayer(Player player, Texture2D texture)
 {
-    DrawPoly(player.position, 3, PLAYER_RADIUS, player.rotation, RAYWHITE);
+    const Rectangle source = {0, 0, 32, 32};
+    Rectangle dest = {player.position.x, player.position.y, PLAYER_RADIUS * 2, PLAYER_RADIUS * 2};
+    Vector2 origin = {dest.width / 2, dest.height / 2};
+    DrawTexturePro(texture, source, dest, origin, player.rotation, WHITE);
 }

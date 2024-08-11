@@ -11,8 +11,8 @@
 
 #define PLAYER_RADIUS 24
 #define PLAYER_ROTATION_SPEED 360
-#define PLAYER_ACCELERATION 200
-#define PLAYER_DECELERATION 300
+#define PLAYER_ACCELERATION 750
+#define PLAYER_DECELERATION 250
 #define PLAYER_SPEED 250
 #define PLAYER_NUDGE_VELOCITY 150
 
@@ -29,7 +29,7 @@ typedef struct Player
 } Player;
 
 Player SpawnPlayer();
-void DrawPlayer(Player player);
+void DrawPlayer(Player player, Texture2D texture);
 void UpdatePlayer(Player *player, float frameTime);
 
 #endif //PLAYER_H
