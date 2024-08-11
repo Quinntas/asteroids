@@ -1,0 +1,18 @@
+//
+// Created by quintas on 8/10/2024.
+//
+
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 600
+#define SCREEN_CENTER CLITERAL(Vector2){SCREEN_WIDTH/2, SCREEN_HEIGHT/2}
+
+#define NEARBLACK CLITERAL(Color){15, 15,15,255}
+
+#define MAX_ASTEROIDS 64
+#define ASTEROID_DELAY 1.5f
+#define ASTEROID_RANDOM_ANGLE 20 * DEG2RAD
+
+#endif //CONSTANTS_H
